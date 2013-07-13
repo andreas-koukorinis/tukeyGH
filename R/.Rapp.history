@@ -1,0 +1,271 @@
+source("/Users/kokrah/Dropbox/tukeyGH/R/closed_fcts.r")#
+#
+# Generate random numbers from Tukey's g-and-h#
+rgh <- function(n, g, h, A=0, B=1){#
+	if(!B > 0) stop(cat("Check: B must be positive"))#
+	z <- rnorm(n)#
+	res <- A + B * trans.gh(z, g, h)#
+	res#
+}#
+#
+# Quantile function for Tukey's g-and-h#
+qgh <- function(p, g, h, A=0, B=1){#
+	if(!B > 0) stop(cat("Check: B must be positive"))#
+	res <- A + B * std.qgh(p, g, h)#
+	res#
+}#
+#
+# Distribution function for Tukey's g-and-h#
+pgh <- function(x, g, h, A=0, B=1){#
+	if(!B > 0) stop(cat("Check: B must be positive"))#
+	z <- (x - A) / B#
+	res <- std.pgh(z, g, h)#
+	res#
+}#
+#
+# Density function for Tukey's g-and-h#
+dgh <- function(x, g, h, A=0, B=1){#
+	if(!B > 0) stop(cat("Check: B must be positive"))#
+	z <- (x - A) / B#
+	res <- (1 / B) * std.dgh(z, g, h)#
+	res#
+}
+source("/Users/kokrah/Dropbox/tukeyGH/R/closed_fcts.r")#
+#
+# Generate random numbers from Tukey's g-and-h#
+rgh <- function(n, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop(cat("Check: B must be positive"))#
+	z <- rnorm(n)#
+	res <- A + B * trans.gh(z, g, h)#
+	res#
+}#
+#
+# Quantile function for Tukey's g-and-h#
+qgh <- function(p, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop(cat("Check: B must be positive"))#
+	res <- A + B * std.qgh(p, g, h)#
+	res#
+}#
+#
+# Distribution function for Tukey's g-and-h#
+pgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop(cat("Check: B must be positive"))#
+	z <- (x - A) / B#
+	res <- std.pgh(z, g, h)#
+	res#
+}#
+#
+# Density function for Tukey's g-and-h#
+dgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop(cat("Check: B must be positive"))#
+	z <- (x - A) / B#
+	res <- (1 / B) * std.dgh(z, g, h)#
+	res#
+}
+rgh(10)
+rgh(10, 1, 1)
+rgh(10, 1, 1, 1, 1)
+rgh(10, 1, 1, 1, -1)
+Generate random numbers from Tukey's g-and-h#
+rgh <- function(n, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- rnorm(n)#
+	res <- A + B * trans.gh(z, g, h)#
+	res#
+}#
+#
+# Quantile function for Tukey's g-and-h#
+qgh <- function(p, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	res <- A + B * std.qgh(p, g, h)#
+	res#
+}#
+#
+# Distribution function for Tukey's g-and-h#
+pgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- std.pgh(z, g, h)#
+	res#
+}#
+#
+# Density function for Tukey's g-and-h#
+dgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- (1 / B) * std.dgh(z, g, h)#
+	res#
+}#
+rgh(10, 1, 1, 1, -1)
+rgh(10, 1, 1, 1, 0)
+rgh(10, 1, 1, 1, 0.3)
+rgh(10, 1, -1, 1, 0.3)
+rgh(10, -1, -1, 1, 0.3)
+qgh(c(0, .2, .4, .99, .01))
+std.qgh(p, g, h)
+std.qgh(0, g, h)
+std.qgh(0, g=0, h=0)
+pnorm(0)
+qnorm(0)
+qgh(c(0.001, .2, .4, .99, .01))
+qgh(c(0.0000001, .2, .4, .99, .01))
+qgh(c(0.0000001, .2, .4, .99, .01), 0, -1)
+source("/Users/kokrah/Dropbox/tukeyGH/R/closed_fcts.r")#
+#
+# Generate random numbers from Tukey's g-and-h#
+rgh <- function(n, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- rnorm(n)#
+	res <- A + B * trans.gh(z, g, h)#
+	res#
+}#
+#
+# Quantile function for Tukey's g-and-h#
+qgh <- function(p, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	res <- A + B * std.qgh(p, g, h)#
+	res#
+}#
+#
+# Distribution function for Tukey's g-and-h#
+pgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- std.pgh(z, g, h)#
+	res#
+}#
+#
+# Density function for Tukey's g-and-h#
+dgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- (1 / B) * std.dgh(z, g, h)#
+	res#
+}#
+rgh(10, -1, -1, 1, 0.3)#
+qgh(c(0.0000001, .2, .4, .99, .01), 0, -1)#
+pgh()
+qgh(c(0.0000001, .2, .4, .99, .01), 0, 1)
+qgh(c(0.0000001, .2, .4, .99, .01), 0, 0)
+qgh(c(0.0000001, .2, .4, .99, .01), -3, 7)
+curve(pgh(x), -10, 10)
+pgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- std.pgh(z, g, h)#
+	res#
+}#
+#
+# Density function for Tukey's g-and-h#
+dgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- (1 / B) * std.dgh(z, g, h)#
+	res#
+}#
+rgh(10, -1, -1, 1, 0.3)#
+#
+curve(pgh(x), -10, 10)
+curve(pgh, -10, 10)
+pgh(seq(-10, 10))
+Distribution function for Tukey's g-and-h#
+pgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- std.pgh(z, g)#
+	res#
+}#
+#
+# Density function for Tukey's g-and-h#
+dgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- (1 / B) * std.dgh(z, g, h)#
+	res#
+}#
+pgh(seq(-10, 10))
+pgh(seq(-10, 10))
+source("/Users/kokrah/Dropbox/tukeyGH/R/closed_fcts.r")#
+#
+# Generate random numbers from Tukey's g-and-h#
+rgh <- function(n, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- rnorm(n)#
+	res <- A + B * trans.gh(z, g, h)#
+	res#
+}#
+#
+# Quantile function for Tukey's g-and-h#
+qgh <- function(p, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	res <- A + B * std.qgh(p, g, h)#
+	res#
+}#
+#
+# Distribution function for Tukey's g-and-h#
+# Currently working for h=0 only#
+pgh <- function(x, g=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- std.pgh(z, g)#
+	res#
+}#
+#
+# Density function for Tukey's g-and-h#
+dgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- (1 / B) * std.dgh(z, g, h)#
+	res#
+}#
+pgh(seq(-10, 10))
+source("/Users/kokrah/Dropbox/tukeyGH/R/closed_fcts.r")#
+#
+# Generate random numbers from Tukey's g-and-h#
+rgh <- function(n, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- rnorm(n)#
+	res <- A + B * trans.gh(z, g, h)#
+	res#
+}#
+#
+# Quantile function for Tukey's g-and-h#
+qgh <- function(p, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	res <- A + B * std.qgh(p, g, h)#
+	res#
+}#
+#
+# Distribution function for Tukey's g-and-h#
+# Currently working for h=0 only#
+pgh <- function(x, g=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- std.pgh(z, g)#
+	res#
+}#
+#
+# Density function for Tukey's g-and-h#
+# Currently working for h=0 only#
+dgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- (1 / B) * std.dgh(z, g, h)#
+	res#
+}#
+pgh(seq(-10, 10))
+dgh(seq(-10, 10))
+dgh <- function(x, g=0, h=0, A=0, B=1){#
+	if(!B > 0) stop("B must be positive")#
+	z <- (x - A) / B#
+	res <- (1 / B) * std.dgh(z, g)#
+	res#
+}#
+dgh(seq(-10, 10))
+dgh(seq(-10, 10), g=-1)
+plot(dgh(seq(-10, 10), g=-1))
+plot(dgh(seq(-10, 10, 0.01), g=-1))
+plot(dgh(seq(-10, 10, 0.01), g=-1), cex=0.5)
+plot(dgh(seq(-10, 10, 0.01), g=-1), cex=0.1)
+plot(dgh(seq(-10, 10, 0.01), g=1), cex=0.1)
+plot(dgh(seq(-10, 10, 0.01), g=.01), cex=0.1)
