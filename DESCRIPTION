@@ -1,8 +1,13 @@
 Package: tukeyGH
 Maintainer: Kwame Okrah <kwame.okrah@gmail.com>
 Author: Kwame Okrah
-Version: 0.9
+Version: 1.0.0
 License: Artistic-2.0
 Title: Tukey's g-and-h
-Description: Implements probablity functions for Tukey's g-and-h 
-             transformation. 
+Description: Implements probablity functions for Tukey's g-and-h
+    transformation.
+Collate:
+    'closed_fcts.r'
+    'main.r'
+    'numerical_fcts.r'
+Depends: stats, utils, grDevices, graphics

@@ -1,35 +1,51 @@
-# Tukey's g-and-h transformation
-trans.gh <- function(z, g, h){
+#' Tukey's g-and-h transformation
+#'
+#' @param x numeric vector
+#' @param g g parameter
+#' @param h h parameter
+trans.gh <- function(x, g, h){
 	
 	if(g==0){		
-		res <- z * exp((h * z^2) / 2) 			
+		res <- x * exp((h * x^2) / 2) 			
 	}else{
-		res <- ((exp(g * z) - 1) / g) * exp((h * z^2 ) / 2)
+		res <- ((exp(g * x) - 1) / g) * exp((h * x^2 ) / 2)
 	}
 	
 	res
 }
 
-# Derivative of Tukey's g-and-h transformation
-deriv.gh <- function(z, g, h){
+
+#' Derivative of Tukey's g-and-h transformation
+#'
+#' @param x numeric vector
+#' @param g g parameter
+#' @param h h parameter
+deriv.gh <- function(x, g, h){
 	
 	if(g==0){
-		res <- (h * z^2 + 1) * exp((h * z^2) / 2)
+		res <- (h * x^2 + 1) * exp((h * x^2) / 2)
 	}else{
-		res <- (((exp(g * z) - 1) / g) * (h * z) + exp(g * z)) * exp((h * z^2) / 2)
+		res <- (((exp(g * x) - 1) / g) * (h * x) + exp(g * x)) * exp((h * x^2) / 2)
 	}
 	
 	res
 }
 
-# Inverse of Tukey's g transformation (h=0, !g==0)
+#' Inverse of Tukey's g transformation (When h=0 and g is not 0)
+#' When g=0 there is no need for an inverse since T(x)=x
+#'
+#' @param x numeric vector
+#' @param g g parameter
 inv.trans.g <- function(x, g){
 	
 	res <- log(x * g + 1) / g
 	res			
 }
    	
-# Standard density: h = 0
+#' Standard density: h = 0 (Shifted logNormal case)
+#'
+#' @param x numeric vector
+#' @param g g parameter
 std.dgh <- function(x, g){
 
     if(g==0){
@@ -44,7 +60,10 @@ std.dgh <- function(x, g){
     res    	
 }
 
-# Standard distribution: h = 0
+#' Standard distribution: h = 0 (Shifted logNormal case)
+#'
+#' @param x numeric vector
+#' @param g g parameter
 std.pgh <- function(x, g){
 
     if(g==0){
@@ -66,7 +85,11 @@ std.pgh <- function(x, g){
     res    	
 }
 
-# Standard quantiles: Not defined for h < 0
+#' Standard quantiles: Not defined for h < 0
+#'
+#' @param p probs in (0, 1)
+#' @param g parameter
+#' @param h parameter (h must be non-negative)
 std.qgh <- function(p, g, h){
 	if(h < 0) stop("h must be non-negative")
 	

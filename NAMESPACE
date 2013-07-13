@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+# export(rgh, qgh, pgh, dgh)
+
+import(graphics, grDevices, stats, utils)

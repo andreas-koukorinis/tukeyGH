@@ -1,6 +1,10 @@
-source("/Users/kokrah/Dropbox/tukeyGH/R/closed_fcts.r")
-
-# Generate random numbers from Tukey's g-and-h
+#' Generate random numbers from Tukey's g-and-h
+#' 
+#' @param n n of samples to generate
+#' @param g parameter
+#' @param h parameter
+#' @param A parameter
+#' @param B parameter
 rgh <- function(n, g=0, h=0, A=0, B=1){
 	if(!B > 0) stop("B must be positive")
 	
@@ -9,8 +13,14 @@ rgh <- function(n, g=0, h=0, A=0, B=1){
 	res
 }
 
-# Quantile function for Tukey's g-and-h
-# Currently working for h >= 0 only
+#' Quantile function for Tukey's g-and-h
+#' Currently working for h >= 0 only
+#'
+#' @param p probs in (0, 1)
+#' @param g parameter
+#' @param h parameter
+#' @param A parameter
+#' @param B parameter
 qgh <- function(p, g=0, h=0, A=0, B=1){
 	if(!B > 0) stop("B must be positive")
 	
@@ -18,8 +28,14 @@ qgh <- function(p, g=0, h=0, A=0, B=1){
 	res
 }
 
-# Distribution function for Tukey's g-and-h
-# Currently working for h=0 only
+#' Distribution function for Tukey's g-and-h
+#' Currently working for h=0 only
+#'
+#' @param x numeric
+#' @param g parameter
+#' @param h parameter
+#' @param A parameter
+#' @param B parameter
 pgh <- function(x, g=0, A=0, B=1){
 	if(!B > 0) stop("B must be positive")
 	
@@ -28,8 +44,14 @@ pgh <- function(x, g=0, A=0, B=1){
 	res
 }
 
-# Density function for Tukey's g-and-h
-# Currently working for h=0 only
+#' Density function for Tukey's g-and-h
+#' Currently working for h=0 only
+#'
+#' @param x numeric
+#' @param g parameter
+#' @param h parameter
+#' @param A parameter
+#' @param B parameter
 dgh <- function(x, g=0, h=0, A=0, B=1){
 	if(!B > 0) stop("B must be positive")
 	
