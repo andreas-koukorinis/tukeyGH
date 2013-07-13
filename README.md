@@ -11,5 +11,5 @@ The package includes:
 2. `qgh` Compute the quantiles for a given g-and-h distribution
 3. `pgh` Compute the distribution for a given g-and-h distribution
 4. `dgh` Compute the density for a given g-and-h distribution
-5. `qfit` Esitimate g and h via quantile method
+5. `qFit` Esitimate g and h via quantile method
 
