@@ -1,0 +1,8 @@
+Package: tukeyGH
+Maintainer: Kwame Okrah <kwame.okrah@gmail.com>
+Author: Kwame Okrah
+Version: 0.9
+License: Artistic-2.0
+Title: Tukey's g-and-h
+Description: Implements probablity functions for Tukey's g-and-h 
+             transformation. 
