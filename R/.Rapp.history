@@ -1,281 +1,1147 @@
-source("/Users/kokrah/Dropbox/tukeyGH/R/closed_fcts.r")#
-#
-# Generate random numbers from Tukey's g-and-h#
-rgh <- function(n, g, h, A=0, B=1){#
-	if(!B > 0) stop(cat("Check: B must be positive"))#
-	z <- rnorm(n)#
-	res <- A + B * trans.gh(z, g, h)#
-	res#
-}#
-#
-# Quantile function for Tukey's g-and-h#
-qgh <- function(p, g, h, A=0, B=1){#
-	if(!B > 0) stop(cat("Check: B must be positive"))#
-	res <- A + B * std.qgh(p, g, h)#
-	res#
-}#
-#
-# Distribution function for Tukey's g-and-h#
-pgh <- function(x, g, h, A=0, B=1){#
-	if(!B > 0) stop(cat("Check: B must be positive"))#
-	z <- (x - A) / B#
-	res <- std.pgh(z, g, h)#
-	res#
-}#
-#
-# Density function for Tukey's g-and-h#
-dgh <- function(x, g, h, A=0, B=1){#
-	if(!B > 0) stop(cat("Check: B must be positive"))#
-	z <- (x - A) / B#
-	res <- (1 / B) * std.dgh(z, g, h)#
-	res#
-}
-source("/Users/kokrah/Dropbox/tukeyGH/R/closed_fcts.r")#
-#
-# Generate random numbers from Tukey's g-and-h#
-rgh <- function(n, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop(cat("Check: B must be positive"))#
-	z <- rnorm(n)#
-	res <- A + B * trans.gh(z, g, h)#
-	res#
-}#
-#
-# Quantile function for Tukey's g-and-h#
-qgh <- function(p, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop(cat("Check: B must be positive"))#
-	res <- A + B * std.qgh(p, g, h)#
-	res#
-}#
-#
-# Distribution function for Tukey's g-and-h#
-pgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop(cat("Check: B must be positive"))#
-	z <- (x - A) / B#
-	res <- std.pgh(z, g, h)#
-	res#
-}#
-#
-# Density function for Tukey's g-and-h#
-dgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop(cat("Check: B must be positive"))#
-	z <- (x - A) / B#
-	res <- (1 / B) * std.dgh(z, g, h)#
-	res#
-}
-rgh(10)
-rgh(10, 1, 1)
-rgh(10, 1, 1, 1, 1)
-rgh(10, 1, 1, 1, -1)
-Generate random numbers from Tukey's g-and-h#
-rgh <- function(n, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- rnorm(n)#
-	res <- A + B * trans.gh(z, g, h)#
-	res#
-}#
-#
-# Quantile function for Tukey's g-and-h#
-qgh <- function(p, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	res <- A + B * std.qgh(p, g, h)#
-	res#
-}#
-#
-# Distribution function for Tukey's g-and-h#
-pgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- std.pgh(z, g, h)#
-	res#
-}#
-#
-# Density function for Tukey's g-and-h#
-dgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- (1 / B) * std.dgh(z, g, h)#
-	res#
-}#
-rgh(10, 1, 1, 1, -1)
-rgh(10, 1, 1, 1, 0)
-rgh(10, 1, 1, 1, 0.3)
-rgh(10, 1, -1, 1, 0.3)
-rgh(10, -1, -1, 1, 0.3)
-qgh(c(0, .2, .4, .99, .01))
-std.qgh(p, g, h)
-std.qgh(0, g, h)
-std.qgh(0, g=0, h=0)
-pnorm(0)
-qnorm(0)
-qgh(c(0.001, .2, .4, .99, .01))
-qgh(c(0.0000001, .2, .4, .99, .01))
-qgh(c(0.0000001, .2, .4, .99, .01), 0, -1)
-source("/Users/kokrah/Dropbox/tukeyGH/R/closed_fcts.r")#
-#
-# Generate random numbers from Tukey's g-and-h#
-rgh <- function(n, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- rnorm(n)#
-	res <- A + B * trans.gh(z, g, h)#
-	res#
-}#
-#
-# Quantile function for Tukey's g-and-h#
-qgh <- function(p, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	res <- A + B * std.qgh(p, g, h)#
-	res#
-}#
-#
-# Distribution function for Tukey's g-and-h#
-pgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- std.pgh(z, g, h)#
-	res#
-}#
-#
-# Density function for Tukey's g-and-h#
-dgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- (1 / B) * std.dgh(z, g, h)#
-	res#
-}#
-rgh(10, -1, -1, 1, 0.3)#
-qgh(c(0.0000001, .2, .4, .99, .01), 0, -1)#
-pgh()
-qgh(c(0.0000001, .2, .4, .99, .01), 0, 1)
-qgh(c(0.0000001, .2, .4, .99, .01), 0, 0)
-qgh(c(0.0000001, .2, .4, .99, .01), -3, 7)
-curve(pgh(x), -10, 10)
-pgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- std.pgh(z, g, h)#
-	res#
-}#
-#
-# Density function for Tukey's g-and-h#
-dgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- (1 / B) * std.dgh(z, g, h)#
-	res#
-}#
-rgh(10, -1, -1, 1, 0.3)#
-#
-curve(pgh(x), -10, 10)
-curve(pgh, -10, 10)
-pgh(seq(-10, 10))
-Distribution function for Tukey's g-and-h#
-pgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- std.pgh(z, g)#
-	res#
-}#
-#
-# Density function for Tukey's g-and-h#
-dgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- (1 / B) * std.dgh(z, g, h)#
-	res#
-}#
-pgh(seq(-10, 10))
-pgh(seq(-10, 10))
-source("/Users/kokrah/Dropbox/tukeyGH/R/closed_fcts.r")#
-#
-# Generate random numbers from Tukey's g-and-h#
-rgh <- function(n, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- rnorm(n)#
-	res <- A + B * trans.gh(z, g, h)#
-	res#
-}#
-#
-# Quantile function for Tukey's g-and-h#
-qgh <- function(p, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	res <- A + B * std.qgh(p, g, h)#
-	res#
-}#
-#
-# Distribution function for Tukey's g-and-h#
-# Currently working for h=0 only#
-pgh <- function(x, g=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- std.pgh(z, g)#
-	res#
-}#
-#
-# Density function for Tukey's g-and-h#
-dgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- (1 / B) * std.dgh(z, g, h)#
-	res#
-}#
-pgh(seq(-10, 10))
-source("/Users/kokrah/Dropbox/tukeyGH/R/closed_fcts.r")#
-#
-# Generate random numbers from Tukey's g-and-h#
-rgh <- function(n, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- rnorm(n)#
-	res <- A + B * trans.gh(z, g, h)#
-	res#
-}#
-#
-# Quantile function for Tukey's g-and-h#
-qgh <- function(p, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	res <- A + B * std.qgh(p, g, h)#
-	res#
-}#
-#
-# Distribution function for Tukey's g-and-h#
-# Currently working for h=0 only#
-pgh <- function(x, g=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- std.pgh(z, g)#
-	res#
-}#
-#
-# Density function for Tukey's g-and-h#
-# Currently working for h=0 only#
-dgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- (1 / B) * std.dgh(z, g, h)#
-	res#
-}#
-pgh(seq(-10, 10))
-dgh(seq(-10, 10))
-dgh <- function(x, g=0, h=0, A=0, B=1){#
-	if(!B > 0) stop("B must be positive")#
-	z <- (x - A) / B#
-	res <- (1 / B) * std.dgh(z, g)#
-	res#
-}#
-dgh(seq(-10, 10))
-dgh(seq(-10, 10), g=-1)
-plot(dgh(seq(-10, 10), g=-1))
-plot(dgh(seq(-10, 10, 0.01), g=-1))
-plot(dgh(seq(-10, 10, 0.01), g=-1), cex=0.5)
-plot(dgh(seq(-10, 10, 0.01), g=-1), cex=0.1)
 plot(dgh(seq(-10, 10, 0.01), g=1), cex=0.1)
 plot(dgh(seq(-10, 10, 0.01), g=.01), cex=0.1)
 library(devtools)
 devtools::document("..")
-devtools::document("..")
 test_dir(".")
 library(testthat)
-test_dir(".")
 test_dir(".")
 getwd()
 test_dir("/Users/kokrah/Dropbox/tukeyGH/R")
 test_file("/Users/kokrah/Dropbox/tukeyGH/R/main.r")
+get.depth <- function(n){#
+  res <- c()#
+  depth <- n#
+  while (depth > 1){#
+    new.depth <- (floor(depth) + 1) / 2#
+    res <- c(res, new.depth)#
+    depth <- new.depth#
+  }#
+  res <- sort(c(res, n + 1 - res))#
+  res#
+}
+get.depth(11)
+smpl <- rnorm(11)
+smpl <- sort(smpl)
+smpl
+n <- length(smpl)
+depth <- get.depth(n)
+depth
+floor(depth)
+floor.depth <- floor(depth)
+floor.depth
+depth==floor.depth
+' Depth function#
+#'#
+#' Internal function#
+#' Given a sample size n compute the depths for Tukey's letter values#
+#'#
+#' @param n sample size#
+get.depth <- function(n){#
+  res <- c()#
+  depth <- n#
+  while (depth > 1){#
+    new.depth <- (floor(depth) + 1) / 2#
+    res <- c(res, new.depth)#
+    depth <- new.depth#
+  }#
+  res <- sort(c(res, n + 1 - res))#
+  res#
+}#
+#' Compute tukey letter values#
+#'#
+#' Internal function#
+#' Depends on get.depth()#
+#'#
+#' @param sampl sample#
+tukey.quantiles <- function(smpl){#
+  smpl <- sort(smpl)#
+  n <- length(smpl)  #
+  depth <- get.depth(n)#
+  floor.depth <- floor(depth)#
+  # grab letter values#
+  res <- ifelse(depth==floor.depth, #
+                smpl[depth], #
+                (smpl[floor.depth] + smpl[floor.depth + 1]) / 2) #
+  res#
+}
+tukey.quantiles(smpl)
+get.depth(11)
+tq <- tukey.quantiles(smpl)
+tq
+t.quant <- tukey.quantiles(smpl)
+n.depth <- length(depth)
+n.depth
+1:(n.depth / 2)
+N <- length(depth)
+N
+lowerQ <- quant[ 1:(N / 2) ]#
+  lowerQ <- rev(lowerQ)#
+  upperQ <- quant[ ((N / 2) + 1):N ]
+quant <- tukey.quantiles(smpl)#
+  N <- length(depth)#
+  lowerQ <- quant[ 1:(N / 2) ]#
+  lowerQ <- rev(lowerQ)#
+  upperQ <- quant[ ((N / 2) + 1):N ]
+lowerQ
+upperQ
+n <- length(smpl)#
+  depth <- get.depth(n)#
+  N <- length(depth)#
+  lowerD <- depth[ 1:(N / 2) ]#
+  lowerD <- rev(lowerD)#
+  upperD <- depth[ ((N / 2) + 1):N ]
+lowerD
+lowerD <- rev(lowerD)
+quants <- tukey.quantiles(smpl)
+quants
+quants <- tukey.quantiles(smpl)#
+  lower.quantiles <- quants[ 1:(N / 2) ]#
+  lower.quantiles <- rev(lower.quantiles)#
+  upper.quantiles <- quants[ ((N / 2) + 1):N ]
+k <- N / 2 - 1
+k
+p <- (1 / 2^(1:k)) / 2
+p
+p <- (1 / 2^(0:k)) / 2
+p
+k <- N / 2 - 1#
+  lower.p <- (1 / 2^(0:k)) / 2 #
+  upper.p <- 1 - lower.p
+lower.p
+upper.p
+quantile.table <- function(smpl){#
+  n <- length(smpl)#
+  depth <- get.depth(n)#
+  N <- length(depth)#
+  lower.depth <- depth[1:(N / 2)]#
+  lower.depth <- rev(lower.depth)#
+  upper.depth <- depth[(N / 2 + 1):N]	#
+  quants <- tukey.quantiles(smpl)#
+  lower.quantiles <- quants[ 1:(N / 2) ]#
+  lower.quantiles <- rev(lower.quantiles)#
+  upper.quantiles <- quants[ ((N / 2) + 1):N ]#
+  # compute corresponding z quantiles#
+  k <- N / 2 - 1#
+  lower.p <- (1 / 2^(0:k)) / 2 #
+  upper.p <- 1 - lower.p #
+  z.lowerQ <- qnorm(lower.p)#
+  z.upperQ <- qnorm(upper.p)#
+  res <- data.frame(lower.depth, upper.depth,#
+  			 		lower.p, upper.p, #
+  			 		z.lowerQ, z.upperQ, #
+  			 		lower.quantiles, upper.quantiles)#
+  res#
+}
+smpl=rchisq(100, 6)
+quantile.table(smpl)
+quantile.table <- function(smpl){#
+  n <- length(smpl)#
+  depth <- get.depth(n)#
+  N <- length(depth)#
+  lower.depth <- depth[1:(N / 2)]#
+  lower.depth <- rev(lower.depth)#
+  upper.depth <- depth[(N / 2 + 1):N]	#
+  quants <- tukey.quantiles(smpl)#
+  lower.quantiles <- quants[ 1:(N / 2) ]#
+  lower.quantiles <- rev(lower.quantiles)#
+  upper.quantiles <- quants[ ((N / 2) + 1):N ]#
+  # compute corresponding z quantiles#
+  k <- N / 2 - 1#
+  lower.p <- (1 / 2^(0:k)) / 2 #
+  upper.p <- 1 - lower.p #
+  z.lowerQ <- qnorm(lower.p)#
+  z.upperQ <- qnorm(upper.p)#
+  res <- data.frame(lDepth=lower.depth, uDepth=upper.depth,#
+  			 		lTail=lower.p, uTail=upper.p, #
+  			 		lZQ=z.lowerQ, uZQ=z.upperQ, #
+  			 		lLetters=lower.quantiles, uLetters=upper.quantiles)#
+  res#
+}
+quantile.table()
+quantile.table(smpl)
+LETTER
+LETTERS
+LETTERS[1:5]
+LETTERS[1:4]
+LETTERS[4:1]
+LETTERS[4:1], LETTERS[26:5]
+LETTERS[26:5]
+c(LETTERS[4:1], LETTERS[26:5])
+c("M",LETTERS[4:1], LETTERS[26:5])
+LETTERS[6:1]
+LETTERS[26:7]
+c("M",LETTERS[6:1], LETTERS[26:7])
+qtab=quantile.table(smpl)
+qtab
+qtab$lTail[-1]
+LHS <- m - qtab$lQZ[-1]
+z <- qtab$lQZ[-1]
+g <- -1 * (1 / z) * log(UHS / LHS)
+half.area <- qtab$lTail[-1]#
+  z <- qtab$lQZ[-1]#
+  m <- qtab$lQZ[1]#
+  LHS <- m - qtab$lQZ[-1]#
+  UHS <- qtab$uQZ[-1] - m#
+  g <- -1 * (1 / z) * log(UHS / LHS)
+g
+half.area <- qtab$lTail[-1]#
+  z <- qtab$lQZ[-1]#
+  m <- qtab$lQZ[1]#
+  LHS <- m - qtab$lQZ[-1]#
+  UHS <- qtab$uQZ[-1] - m#
+  g <- -1 * (1 / z) * log(UHS / LHS)
+half.area
+z
+z <- qtab$lZQ[-1]
+half.area <- qtab$lTail[-1]#
+  z <- qtab$lZQ[-1]#
+  m <- qtab$lZQ[1]#
+  LHS <- m - qtab$lZQ[-1]#
+  UHS <- qtab$uZQ[-1] - m#
+  g <- -1 * (1 / z) * log(UHS / LHS)
+g
+data.frame(area=area,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g=g)
+area <- qtab$lTail[-1]#
+  z <- qtab$lZQ[-1]#
+  m <- qtab$lZQ[1]#
+  LHS <- m - qtab$lZQ[-1]#
+  UHS <- qtab$uZQ[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g <- z.factor * log(UHS / LHS)#
+  tab <- data.frame(area=area,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g=g)#
+  res <- list(tab=tab, m=m)#
+  res
+half.area <- qtab$lTail[-1]#
+  z <- qtab$lZQ[-1]#
+  m <- qtab$lZQ[1]#
+  LHS <- m - qtab$lZQ[-1]#
+  UHS <- qtab$uZQ[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g <- z.factor * log(UHS / LHS)#
+  tab <- data.frame(halfArea=half.area,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g=g)#
+  res <- list(tab=tab, m=m)#
+  res
+median(g)
+c(g=median(g.p), mad=mad(g.p))
+half.area <- qtab$lTail[-1]#
+  z <- qtab$lZQ[-1]#
+  m <- qtab$lZQ[1]#
+  LHS <- m - qtab$lZQ[-1]#
+  UHS <- qtab$uZQ[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g.p <- z.factor * log(UHS / LHS)#
+  tab <- data.frame(halfArea=half.area,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g.p=g.p)#
+  c(g=median(g.p), mad=mad(g.p))
+half.area <- qtab$lTail[-1]#
+  z <- qtab$lZQ[-1]#
+  m <- qtab$lZQ[1]#
+  LHS <- m - qtab$lZQ[-1]#
+  UHS <- qtab$uZQ[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g.p <- z.factor * log(UHS / LHS)#
+  tab <- data.frame(halfArea=half.area,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g.p=g.p)#
+  gEst <- c(g=median(g.p), mad=mad(g.p))#
+  res <- list(tab=tab, gEest= gEest, m=m)#
+  res
+median(g.p)
+mad(g.p)
+gEst <- c(g=median(g.p), mad=mad(g.p))
+gEst
+half.area <- qtab$lTail[-1]#
+  z <- qtab$lZQ[-1]#
+  m <- qtab$lZQ[1]#
+  LHS <- m - qtab$lZQ[-1]#
+  UHS <- qtab$uZQ[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g.p <- z.factor * log(UHS / LHS)#
+  tab <- data.frame(halfArea=half.area,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g.p=g.p)#
+  gEst <- c(g=median(g.p), mad=mad(g.p))#
+  res <- list(tab=tab, gEst=gEst, m=m)#
+  res
+res <- list(tab=tab, g=median(g.p), mad=mad(g.p), m=m)
+res
+res <- list(tab=tab, m=m, g=median(g.p), mad=mad(g.p))
+res
+gtab=res
+gtab$tab$g
+g <- gtab$g
+g
+tab <- data.frame(halfArea=half.area,#
+  					z = z,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g.p=g.p)#
+  res <- list(tab=tab, m=m, g=median(g.p), mad=mad(g.p))#
+  res
+gtab
+gtab$g
+gtab$m
+gtab$tab$z
+gtab$tab$halfArea
+list(tab=tab, m=m, g=g, mad=mad)
+half.area <- qtab$lTail[-1]#
+  z <- qtab$lZQ[-1]#
+  m <- qtab$lZQ[1]#
+  LHS <- m - qtab$lZQ[-1]#
+  UHS <- qtab$uZQ[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g.p <- z.factor * log(UHS / LHS)#
+  g <- median(g.p)#
+  gMAD <- mad(g.p)#
+  tab <- data.frame(halfArea=half.area,#
+  					z = z,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g.p=g.p)#
+  res <- list(tab=tab, m=m, g=g, gMAD=gMAD)#
+  res
+gtab = res
+g <- gtab$g#
+  m <- gtab$m#
+  z <- gtab$tab$z#
+  halfArea <- gtab$tab$halfArea#
+  UHS <- gtab$tab$UHS#
+  LHS <- gtab$tab$LHS#
+  z.sqrd.5 <- z^2 / 2#
+  UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))#
+  res <- data.frame(halfArea=halfArea,#
+                    z.sqrd.5=z.sqrd.5,#
+                    UHS.star=UHS.star,#
+                    LHS.star=LHS.star,#
+                    Spread.star=Spread.star)  #
+  res
+compute smpla for estimating h#
+h.table <- function(gtab){#
+  g <- gtab$g#
+  m <- gtab$m#
+  z <- gtab$tab$z#
+  halfArea <- gtab$tab$halfArea#
+  UHS <- gtab$tab$UHS#
+  LHS <- gtab$tab$LHS#
+  z.sqrd.5 <- z^2 / 2#
+  UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))#
+  res <- data.frame(halfArea=halfArea,#
+                    z.sqrd.5=z.sqrd.5,#
+                    UHS.star=UHS.star,#
+                    LHS.star=LHS.star,#
+                    Spread.star=Spread.star)  #
+  res    #
+}
+' Depth function#
+#'#
+#' Internal function#
+#' Given a sample size n compute the depths for Tukey's letter values#
+#'#
+#' @param n sample size#
+get.depth <- function(n){#
+  res <- c()#
+  depth <- n#
+  while (depth > 1){#
+    new.depth <- (floor(depth) + 1) / 2#
+    res <- c(res, new.depth)#
+    depth <- new.depth#
+  }#
+  res <- sort(c(res, n + 1 - res))#
+  res#
+}#
+#' Compute Tukey's letter values#
+#'#
+#' Internal function#
+#' Depends on get.depth()#
+#'#
+#' @param sampl sample#
+tukey.quantiles <- function(smpl){#
+  smpl <- sort(smpl)#
+  n <- length(smpl)  #
+  depth <- get.depth(n)#
+  floor.depth <- floor(depth)#
+  # grab letter values#
+  res <- ifelse(depth==floor.depth, #
+                smpl[depth], #
+                (smpl[floor.depth] + smpl[floor.depth + 1]) / 2) #
+  res#
+}#
+# Summarize quantiles for a given sample#
+##
+# Internal function#
+# Depends on tukey.quantiles()#
+# Depends on get.depth()#
+#
+quantile.table <- function(smpl){#
+  n <- length(smpl)#
+  depth <- get.depth(n)#
+  N <- length(depth)#
+  lower.depth <- depth[1:(N / 2)]#
+  lower.depth <- rev(lower.depth)#
+  upper.depth <- depth[(N / 2 + 1):N]	#
+  quants <- tukey.quantiles(smpl)#
+  lower.quantiles <- quants[ 1:(N / 2) ]#
+  lower.quantiles <- rev(lower.quantiles)#
+  upper.quantiles <- quants[ ((N / 2) + 1):N ]#
+  # compute corresponding z quantiles#
+  k <- N / 2 - 1#
+  lower.p <- (1 / 2^(0:k)) / 2 #
+  upper.p <- 1 - lower.p #
+  z.lowerQ <- qnorm(lower.p)#
+  z.upperQ <- qnorm(upper.p)#
+  res <- data.frame(lDepth=lower.depth, uDepth=upper.depth,#
+  			 		lTail=lower.p, uTail=upper.p, #
+  			 		lZQ=z.lowerQ, uZQ=z.upperQ, #
+  			 		lLetters=lower.quantiles, uLetters=upper.quantiles)#
+  res  #
+}#
+#
+# summarize g for each quantile#
+g.table <- function(qtab){#
+  half.area <- qtab$lTail[-1]#
+  z <- qtab$lZQ[-1]#
+  m <- qtab$lZQ[1]#
+  LHS <- m - qtab$lZQ[-1]#
+  UHS <- qtab$uZQ[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g.p <- z.factor * log(UHS / LHS)#
+  g <- median(g.p)#
+  gMAD <- mad(g.p)#
+  tab <- data.frame(halfArea=half.area,#
+  					z = z,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g.p=g.p)#
+  res <- list(tab=tab, m=m, g=g, gMAD=gMAD)#
+  res#
+}#
+#
+# compute smpla for estimating h#
+h.table <- function(gtab){#
+  g <- gtab$g#
+  m <- gtab$m#
+  z <- gtab$tab$z#
+  halfArea <- gtab$tab$halfArea#
+  UHS <- gtab$tab$UHS#
+  LHS <- gtab$tab$LHS#
+  z.sqrd.5 <- z^2 / 2#
+  UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))#
+  res <- data.frame(halfArea=halfArea,#
+                    z.sqrd.5=z.sqrd.5,#
+                    UHS.star=UHS.star,#
+                    LHS.star=LHS.star,#
+                    Spread.star=Spread.star)  #
+  res    #
+}
+g.table(quantile.table(smpl))
+smpl = rexp(50)
+g.table(quantile.table(smpl))
+smpl = rchisq(30, 6)
+hist(smpl)
+quantile.table(smpl)
+quantile.table <- function(smpl){#
+  n <- length(smpl)#
+  depth <- get.depth(n)#
+  N <- length(depth)#
+  lower.depth <- depth[1:(N / 2)]#
+  lower.depth <- rev(lower.depth)#
+  upper.depth <- depth[(N / 2 + 1):N]	#
+  quants <- tukey.quantiles(smpl)#
+  lower.quantiles <- quants[ 1:(N / 2) ]#
+  lower.quantiles <- rev(lower.quantiles)#
+  upper.quantiles <- quants[ ((N / 2) + 1):N ]#
+  # compute corresponding z quantiles#
+  k <- N / 2 - 1#
+  lower.p <- (1 / 2^(0:k)) / 2 #
+  upper.p <- 1 - lower.p #
+  z.lowerQ <- qnorm(lower.p)#
+  z.upperQ <- qnorm(upper.p)#
+  res <- data.frame(lDepth=lower.depth, uDepth=upper.depth,#
+  			 		lTail=lower.p, uTail=upper.p, #
+  			 		lZQ=z.lowerQ, uZQ=z.upperQ, #
+  			 		lLetters=lower.quantiles, uLetters=upper.quantiles)#
+  res  #
+}
+'#
+#' @param n sample size#
+get.depth <- function(n){#
+  res <- c()#
+  depth <- n#
+  while (depth > 1){#
+    new.depth <- (floor(depth) + 1) / 2#
+    res <- c(res, new.depth)#
+    depth <- new.depth#
+  }#
+  res <- sort(c(res, n + 1 - res))#
+  res#
+}#
+#' Compute Tukey's letter values#
+#'#
+#' Internal function#
+#' Depends on get.depth()#
+#'#
+#' @param sampl sample#
+tukey.quantiles <- function(smpl){#
+  smpl <- sort(smpl)#
+  n <- length(smpl)  #
+  depth <- get.depth(n)#
+  floor.depth <- floor(depth)#
+  # grab letter values#
+  res <- ifelse(depth==floor.depth, #
+                smpl[depth], #
+                (smpl[floor.depth] + smpl[floor.depth + 1]) / 2) #
+  res#
+}#
+# Summarize quantiles for a given sample#
+##
+# Internal function#
+# Depends on tukey.quantiles()#
+# Depends on get.depth()#
+#
+quantile.table <- function(smpl){#
+  n <- length(smpl)#
+  depth <- get.depth(n)#
+  N <- length(depth)#
+  lower.depth <- depth[1:(N / 2)]#
+  lower.depth <- rev(lower.depth)#
+  upper.depth <- depth[(N / 2 + 1):N]	#
+  quants <- tukey.quantiles(smpl)#
+  lower.quantiles <- quants[ 1:(N / 2) ]#
+  lower.quantiles <- rev(lower.quantiles)#
+  upper.quantiles <- quants[ ((N / 2) + 1):N ]#
+  # compute corresponding z quantiles#
+  k <- N / 2 - 1#
+  lower.p <- (1 / 2^(0:k)) / 2 #
+  upper.p <- 1 - lower.p #
+  z.lowerQ <- qnorm(lower.p)#
+  z.upperQ <- qnorm(upper.p)#
+  res <- data.frame(lDepth=lower.depth, uDepth=upper.depth,#
+  			 		lTail=lower.p, uTail=upper.p, #
+  			 		lZQ=z.lowerQ, uZQ=z.upperQ, #
+  			 		lLetters=lower.quantiles, uLetters=upper.quantiles)#
+  res  #
+}
+quantile.table(smpl)
+tmp <- quantile.table(smpl)
+g.table(tmp)
+summarize g for each quantile#
+g.table <- function(qtab){#
+  half.area <- qtab$lTail[-1]#
+  z <- qtab$lZQ[-1]#
+  m <- qtab$lZQ[1]#
+  LHS <- m - qtab$lZQ[-1]#
+  UHS <- qtab$uZQ[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g.p <- z.factor * log(UHS / LHS)#
+  g <- median(g.p)#
+  gMAD <- mad(g.p)#
+  tab <- data.frame(halfArea=half.area,#
+  					z = z,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g.p=g.p)#
+  res <- list(tab=tab, m=m, g=g, gMAD=gMAD)#
+  res#
+}#
+#
+# compute smpla for estimating h#
+h.table <- function(gtab){#
+  g <- gtab$g#
+  m <- gtab$m#
+  z <- gtab$tab$z#
+  halfArea <- gtab$tab$halfArea#
+  UHS <- gtab$tab$UHS#
+  LHS <- gtab$tab$LHS#
+  z.sqrd.5 <- z^2 / 2#
+  UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))#
+  res <- data.frame(halfArea=halfArea,#
+                    z.sqrd.5=z.sqrd.5,#
+                    UHS.star=UHS.star,#
+                    LHS.star=LHS.star,#
+                    Spread.star=Spread.star)  #
+  res    #
+}
+g.table(tmp)
+tmp
+summarize g for each quantile#
+g.table <- function(qtab){#
+  half.area <- qtab$lTail[-1]#
+  z <- qtab$lZQ[-1]#
+  m <- qtab$lLetters[1]#
+  LHS <- m - qtab$lLetters[-1]#
+  UHS <- qtab$uLetters[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g.p <- z.factor * log(UHS / LHS)#
+  g <- median(g.p)#
+  gMAD <- mad(g.p)#
+  tab <- data.frame(halfArea=half.area,#
+  					z = z,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g.p=g.p)#
+  res <- list(tab=tab, m=m, g=g, gMAD=gMAD)#
+  res#
+}#
+#
+# compute smpla for estimating h#
+h.table <- function(gtab){#
+  g <- gtab$g#
+  m <- gtab$m#
+  z <- gtab$tab$z#
+  halfArea <- gtab$tab$halfArea#
+  UHS <- gtab$tab$UHS#
+  LHS <- gtab$tab$LHS#
+  z.sqrd.5 <- z^2 / 2#
+  UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))#
+  res <- data.frame(halfArea=halfArea,#
+                    z.sqrd.5=z.sqrd.5,#
+                    UHS.star=UHS.star,#
+                    LHS.star=LHS.star,#
+                    Spread.star=Spread.star)  #
+  res    #
+}
+g.table(tmp)
+(
+X <- cbind(1, z.sqrd.5)
+z.sqrd.5 <- z^2 / 2
+gtab
+gtab= g.table(tmp)
+g <- gtab$g#
+  m <- gtab$m#
+  z <- gtab$tab$z#
+  halfArea <- gtab$tab$halfArea#
+  UHS <- gtab$tab$UHS#
+  LHS <- gtab$tab$LHS
+g
+m
+z
+halfArea
+UHS
+LHS
+z.sqrd.5 <- z^2 / 2
+z.sqrd.5
+X <- cbind(1, z.sqrd.5)
+X
+gtab
+t(X)
+solve(t(X) %*% X) %*% (t(X) %*% y)
+y <- log(gtab$tab$Spread.star)
+gtab
+Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))
+y <- log(gtab$tab$Spread.star)
+y <- log(Spread.star)
+solve(t(X) %*% X) %*% (t(X) %*% y)
+est <- solve(t(X) %*% X) %*% (t(X) %*% y)
+est
+est <- as.numeric(est)
+est
+data.frame(halfArea, z.sqrd.5, UHS.star, LHS.star, Spread.star)
+res  <- list(htab=tab, h=h, B=B)
+gtab
+h.table(gtab)
+compute smpla for estimating h#
+h.table <- function(gtab){#
+  g <- gtab$g#
+  m <- gtab$m#
+  z <- gtab$tab$z#
+  halfArea <- gtab$tab$halfArea#
+  UHS <- gtab$tab$UHS#
+  LHS <- gtab$tab$LHS#
+  z.sqrd.5 <- z^2 / 2#
+  UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))#
+  # estimate h and B via least-squares#
+  X <- cbind(1, z.sqrd.5)#
+  #y <- log(UHS.star)#
+  #y <- log(LHS.star)#
+  y <- log(Spread.star)#
+  est <- solve(t(X) %*% X) %*% (t(X) %*% y)#
+  est <- as.numeric(est)#
+  B <- exp(est[1])#
+  h <- est[2]#
+  htab <- data.frame(halfArea, z.sqrd.5, UHS.star, LHS.star, Spread.star)  #
+  res  <- list(htab, h, B)#
+  res  #
+}
+h.table(gtab)
+summarize g for each quantile#
+g.table <- function(qtab){#
+  half.area <- qtab$lTail[-1]#
+  z <- qtab$lZQ[-1]#
+  A <- m <- qtab$lLetters[1]#
+  LHS <- m - qtab$lLetters[-1]#
+  UHS <- qtab$uLetters[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g.p <- z.factor * log(UHS / LHS)#
+  g <- median(g.p)#
+  gMAD <- mad(g.p)#
+  gtab <- data.frame(halfArea=half.area,#
+  					z = z,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g.p=g.p)#
+  res <- list(gtab=gtab, g=g, gMAD=gMAD, A=A)#
+  res#
+}#
+#
+# compute smpla for estimating h#
+h.table <- function(gtab){#
+  g <- gtab$g#
+  m <- gtab$m#
+  z <- gtab$tab$z#
+  halfArea <- gtab$tab$halfArea#
+  UHS <- gtab$tab$UHS#
+  LHS <- gtab$tab$LHS#
+  z.sqrd.5 <- z^2 / 2#
+  UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))#
+  # estimate h and B via least-squares#
+  X <- cbind(1, z.sqrd.5)#
+  #y <- log(UHS.star)#
+  #y <- log(LHS.star)#
+  y <- log(Spread.star)#
+  est <- solve(t(X) %*% X) %*% (t(X) %*% y)#
+  est <- as.numeric(est)#
+  B <- exp(est[1])#
+  h <- est[2]#
+  htab <- data.frame(halfArea=halfArea, z.sqrd.5=z.sqrd.5,#
+                     UHS.star=UHS.star, LHS.star=LHS.star, #
+                     Spread.star=Spread.star)  #
+  res  <- list(htab=htab, h=h, B=B)#
+  res  #
+}
+h.table(gtab)
+smpl
+q.tab <- quantile.table(smpl)
+q.tab
+g.tab <- g.table(q.tab)
+g.tab
+htab <- h.table(g.tab)
+htab
+compute smpl for estimating h#
+h.table <- function(gtab){#
+  g <- gtab$g#
+  m <- gtab$m#
+  z <- gtab$tab$z#
+  halfArea <- gtab$tab$halfArea#
+  UHS <- gtab$tab$UHS#
+  LHS <- gtab$tab$LHS#
+  z.sqrd.5 <- z^2 / 2#
+  UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))#
+  # estimate h and B via least-squares#
+  X <- cbind(1, z.sqrd.5)#
+  #y <- log(UHS.star)#
+  #y <- log(LHS.star)#
+  y <- log(Spread.star)#
+  est <- solve(t(X) %*% X) %*% (t(X) %*% y)#
+  est <- as.numeric(est)#
+  B <- exp(est[1])#
+  h <- est[2]#
+  htab <- data.frame(halfArea=halfArea, z.sqrd.5=z.sqrd.5,#
+                     UHS.star=UHS.star, LHS.star=LHS.star, #
+                     Spread.star=Spread.star)  #
+  res  <- list(htab=htab, h=h, B=B)#
+  res  #
+}
+qFit <- function(smpl){#
+  Q.tab <- quantile.table(smpl)#
+  G.tab <- g.table(Q.tab)#
+  H.tab <- h.table(G.tab)#
+}
+Q.tab <- quantile.table(smpl)
+Q.tab
+G.tab <- g.table(Q.tab)
+G.tab
+h.table(G.tab)
+gtab
+gtab$g
+g <- gtab$g
+quantile.table(smpl)
+g.table(Q.tab)
+G.tab <- g.table(Q.tab)
+G.tab
+h.table(G.tab)
+g.table(Q.tab)
+tabl=g.table(Q.tab)
+tabl$g
+tabl$gtab$z
+tabl$gtab$halfArea
+tabl$gtab$UHS
+tabl$gtab$LHS
+z^2 / 2
+UHS.star <- g * UHS / (exp(-g * z) - 1)
+LHS.star <- g * LHS / (1 - exp(g * z))
+Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))
+Spread.star
+y <- log(Spread.star)
+X <- cbind(1, z.sqrd.5)
+g <- tabl$g#
+#
+  z <- tabl$gtab$z#
+  halfArea <- tabl$gtab$halfArea#
+  UHS <- tabl$gtab$UHS#
+  LHS <- tabl$gtab$LHS#
+  z.sqrd.5 <- z^2 / 2#
+  UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))#
+  # estimate h and B via least-squares#
+  X <- cbind(1, z.sqrd.5)#
+  #y <- log(UHS.star)#
+  #y <- log(LHS.star)#
+  y <- log(Spread.star)#
+  est <- solve(t(X) %*% X) %*% (t(X) %*% y)#
+  est <- as.numeric(est)#
+  B <- exp(est[1])#
+  h <- est[2]#
+  htab <- data.frame(halfArea=halfArea, z.sqrd.5=z.sqrd.5,#
+                     UHS.star=UHS.star, LHS.star=LHS.star, #
+                     Spread.star=Spread.star)  #
+  res  <- list(htab=htab, h=h, B=B)#
+  res
+compute smpl for estimating h#
+h.table <- function(tabl){ #
+  g <- tabl$g#
+#
+  z <- tabl$gtab$z#
+  halfArea <- tabl$gtab$halfArea#
+  UHS <- tabl$gtab$UHS#
+  LHS <- tabl$gtab$LHS#
+  z.sqrd.5 <- z^2 / 2#
+  UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))#
+  # estimate h and B via least-squares#
+  X <- cbind(1, z.sqrd.5)#
+  #y <- log(UHS.star)#
+  #y <- log(LHS.star)#
+  y <- log(Spread.star)#
+  est <- solve(t(X) %*% X) %*% (t(X) %*% y)#
+  est <- as.numeric(est)#
+  B <- exp(est[1])#
+  h <- est[2]#
+  htab <- data.frame(halfArea=halfArea, z.sqrd.5=z.sqrd.5,#
+                     UHS.star=UHS.star, LHS.star=LHS.star, #
+                     Spread.star=Spread.star)  #
+  res  <- list(htab=htab, h=h, B=B)#
+  res  #
+}
+h.table(G.tab)
+smpl=rchisq(1000, 6)
+' Depth function#
+#'#
+#' Internal function#
+#' Given a sample size n compute the depths for Tukey's letter values#
+#'#
+#' @param n sample size#
+get.depth <- function(n){#
+  res <- c()#
+  depth <- n#
+  while (depth > 1){#
+    new.depth <- (floor(depth) + 1) / 2#
+    res <- c(res, new.depth)#
+    depth <- new.depth#
+  }#
+  res <- sort(c(res, n + 1 - res))#
+  res#
+}#
+#' Compute Tukey's letter values#
+#'#
+#' Internal function#
+#' Depends on get.depth()#
+#'#
+#' @param sampl sample#
+tukey.quantiles <- function(smpl){#
+  smpl <- sort(smpl)#
+  n <- length(smpl)  #
+  depth <- get.depth(n)#
+  floor.depth <- floor(depth)#
+  # grab letter values#
+  res <- ifelse(depth==floor.depth, #
+                smpl[depth], #
+                (smpl[floor.depth] + smpl[floor.depth + 1]) / 2) #
+  res#
+}#
+# Summarize quantiles for a given sample#
+##
+# Internal function#
+# Depends on tukey.quantiles()#
+# Depends on get.depth()#
+#
+quantile.table <- function(smpl){#
+  n <- length(smpl)#
+  depth <- get.depth(n)#
+  N <- length(depth)#
+  lower.depth <- depth[1:(N / 2)]#
+  lower.depth <- rev(lower.depth)#
+  upper.depth <- depth[(N / 2 + 1):N]	#
+  quants <- tukey.quantiles(smpl)#
+  lower.quantiles <- quants[ 1:(N / 2) ]#
+  lower.quantiles <- rev(lower.quantiles)#
+  upper.quantiles <- quants[ ((N / 2) + 1):N ]#
+  # compute corresponding z quantiles#
+  k <- N / 2 - 1#
+  lower.p <- (1 / 2^(0:k)) / 2 #
+  upper.p <- 1 - lower.p #
+  z.lowerQ <- qnorm(lower.p)#
+  z.upperQ <- qnorm(upper.p)#
+  res <- data.frame(lDepth=lower.depth, uDepth=upper.depth,#
+  			 		lTail=lower.p, uTail=upper.p, #
+  			 		lZQ=z.lowerQ, uZQ=z.upperQ, #
+  			 		lLetters=lower.quantiles, uLetters=upper.quantiles)#
+  res  #
+}
+quantile.table(smpl)
+smpl=rnorm(10000)
+n <- length(smpl)
+depth <- get.depth(n)
+' Depth function#
+#'#
+#' Internal function#
+#' Given a sample size n compute the depths for Tukey's letter values#
+#'#
+#' @param n sample size#
+get.depth <- function(n){#
+  res <- c()#
+  depth <- n#
+  while (depth > 1){#
+    new.depth <- (floor(depth) + 1) / 2#
+    res <- c(res, new.depth)#
+    depth <- new.depth#
+  }#
+  res <- sort(c(res, n + 1 - res))#
+  res#
+}#
+#' Compute Tukey's letter values#
+#'#
+#' Internal function#
+#' Depends on get.depth()#
+#'#
+#' @param sampl sample#
+tukey.quantiles <- function(smpl){#
+  smpl <- sort(smpl)#
+  n <- length(smpl)  #
+  depth <- get.depth(n)#
+  floor.depth <- floor(depth)#
+  # grab letter values#
+  res <- ifelse(depth==floor.depth, #
+                smpl[depth], #
+                (smpl[floor.depth] + smpl[floor.depth + 1]) / 2) #
+  res#
+}
+depth <- get.depth(n)
+N <- length(depth)
+depth
+n <- length(smpl)#
+  depth <- get.depth(n)#
+  N <- length(depth)#
+  lower.depth <- depth[1:(N / 2)]#
+  lower.depth <- rev(lower.depth)#
+  upper.depth <- depth[(N / 2 + 1):N]	#
+  quants <- tukey.quantiles(smpl)#
+  lower.quantiles <- quants[ 1:(N / 2) ]#
+  lower.quantiles <- rev(lower.quantiles)#
+  upper.quantiles <- quants[ ((N / 2) + 1):N ]#
+  # compute corresponding z quantiles#
+  k <- N / 2 - 1#
+  lower.p <- (1 / 2^(0:k)) / 2 #
+  upper.p <- 1 - lower.p #
+  z.lowerQ <- qnorm(lower.p)#
+  z.upperQ <- qnorm(upper.p)#
+  res <- data.frame(lDepth=lower.depth, uDepth=upper.depth,#
+  			 		lTail=lower.p, uTail=upper.p, #
+  			 		lZQ=z.lowerQ, uZQ=z.upperQ, #
+  			 		lLetters=lower.quantiles, uLetters=upper.quantiles)#
+  res
+tabl=res
+half.area <- tabl$lTail[-1]#
+  z <- tabl$lZQ[-1]#
+  A <- m <- tabl$lLetters[1]#
+  LHS <- m - tabl$lLetters[-1]#
+  UHS <- tabl$uLetters[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g.p <- z.factor * log(UHS / LHS)#
+  g <- median(g.p)#
+  gMAD <- mad(g.p)#
+  gtab <- data.frame(halfArea=half.area,#
+  					z = z,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g.p=g.p)#
+  res <- list(gtab=gtab, g=g, gMAD=gMAD, A=A)#
+  res
+tabl=res
+tabl$g
+g <- tabl$g
+z <- tabl$gtab$z#
+  halfArea <- tabl$gtab$halfArea#
+  UHS <- tabl$gtab$UHS#
+  LHS <- tabl$gtab$LHS
+z.sqrd.5 <- z^2 / 2
+UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))
+X <- cbind(1, z.sqrd.5)
+y <- log(Spread.star)
+est <- solve(t(X) %*% X) %*% (t(X) %*% y)
+est
+est <- as.numeric(est)
+est
+B <- exp(est[1])
+B
+h <- est[2]
+htab <- data.frame(halfArea=halfArea, z.sqrd.5=z.sqrd.5,#
+                     UHS.star=UHS.star, LHS.star=LHS.star, #
+                     Spread.star=Spread.star)  #
+  res  <- list(htab=htab, h=h, B=B)#
+  res
+q.tabl <- quantile.table(smpl)
+' Depth function#
+#'#
+#' Internal function#
+#' Given a sample size n compute the depths for Tukey's letter values#
+#'#
+#' @param n sample size#
+get.depth <- function(n){#
+  res <- c()#
+  depth <- n#
+  while (depth > 1){#
+    new.depth <- (floor(depth) + 1) / 2#
+    res <- c(res, new.depth)#
+    depth <- new.depth#
+  }#
+  res <- sort(c(res, n + 1 - res))#
+  res#
+}#
+#' Compute Tukey's letter values#
+#'#
+#' Internal function#
+#' Depends on get.depth()#
+#'#
+#' @param sampl sample#
+tukey.quantiles <- function(smpl){#
+  smpl <- sort(smpl)#
+  n <- length(smpl)  #
+  depth <- get.depth(n)#
+  floor.depth <- floor(depth)#
+  # grab letter values#
+  res <- ifelse(depth==floor.depth, #
+                smpl[depth], #
+                (smpl[floor.depth] + smpl[floor.depth + 1]) / 2) #
+  res#
+}#
+# Summarize quantiles for a given sample#
+##
+# Internal function#
+# Depends on tukey.quantiles()#
+# Depends on get.depth()#
+#
+quantile.table <- function(smpl){#
+  n <- length(smpl)#
+  depth <- get.depth(n)#
+  N <- length(depth)#
+  lower.depth <- depth[1:(N / 2)]#
+  lower.depth <- rev(lower.depth)#
+  upper.depth <- depth[(N / 2 + 1):N]	#
+  quants <- tukey.quantiles(smpl)#
+  lower.quantiles <- quants[ 1:(N / 2) ]#
+  lower.quantiles <- rev(lower.quantiles)#
+  upper.quantiles <- quants[ ((N / 2) + 1):N ]#
+  # compute corresponding z quantiles#
+  k <- N / 2 - 1#
+  lower.p <- (1 / 2^(0:k)) / 2 #
+  upper.p <- 1 - lower.p #
+  z.lowerQ <- qnorm(lower.p)#
+  z.upperQ <- qnorm(upper.p)#
+  res <- data.frame(lDepth=lower.depth, uDepth=upper.depth,#
+  			 		lTail=lower.p, uTail=upper.p, #
+  			 		lZQ=z.lowerQ, uZQ=z.upperQ, #
+  			 		lLetters=lower.quantiles, uLetters=upper.quantiles)#
+  res  #
+}#
+#
+# summarize g for each quantile#
+g.table <- function(tabl){#
+  half.area <- tabl$lTail[-1]#
+  z <- tabl$lZQ[-1]#
+  A <- m <- tabl$lLetters[1]#
+  LHS <- m - tabl$lLetters[-1]#
+  UHS <- tabl$uLetters[-1] - m#
+  z.factor <- -1 * (1 / z)#
+  g.p <- z.factor * log(UHS / LHS)#
+  g <- median(g.p)#
+  gMAD <- mad(g.p)#
+  gtab <- data.frame(halfArea=half.area,#
+  					z = z,#
+   					zFact=z.factor,#
+    				LHS=LHS, UHS=UHS, #
+    				ratio=UHS/LHS, g.p=g.p)#
+  res <- list(gtab=gtab, g=g, gMAD=gMAD, A=A)#
+  res#
+}#
+#
+# compute smpl for estimating h#
+h.table <- function(tabl){ #
+  g <- tabl$g#
+#
+  z <- tabl$gtab$z#
+  halfArea <- tabl$gtab$halfArea#
+  UHS <- tabl$gtab$UHS#
+  LHS <- tabl$gtab$LHS#
+  z.sqrd.5 <- z^2 / 2#
+  UHS.star <- g * UHS / (exp(-g * z) - 1)#
+  LHS.star <- g * LHS / (1 - exp(g * z))#
+  Spread.star <- g * (UHS + LHS) / (exp(- g * z) - exp(g * z))#
+  # estimate h and B via least-squares#
+  X <- cbind(1, z.sqrd.5)#
+  #y <- log(UHS.star)#
+  #y <- log(LHS.star)#
+  y <- log(Spread.star)#
+  est <- solve(t(X) %*% X) %*% (t(X) %*% y)#
+  est <- as.numeric(est)#
+  B <- exp(est[1])#
+  h <- est[2]#
+  htab <- data.frame(halfArea=halfArea, z.sqrd.5=z.sqrd.5,#
+                     UHS.star=UHS.star, LHS.star=LHS.star, #
+                     Spread.star=Spread.star)  #
+  res  <- list(htab=htab, h=h, B=B)#
+  res  #
+}
+q.tabl <- quantile.table(smpl)
+q.tabl
+g.tabl <- g.table(q.tabl)
+g.tabl
+h.tabl <- h.table(g.tabl)
+h.tabl
+g.tabl$g
+h.tabl$h
+g.tabl$A
+res <- c(g=g.tabl$g, h=h.tabl$h, A=g.tabl$A, B=h.tabl$B)
+res
