@@ -4,7 +4,9 @@
 #' Given a sample size n compute the depths for Tukey's letter values
 #'
 #' @param n sample size
-get.depth <- function(n){
+#' @param max.depth Use extremes?
+#' @export
+get.depth <- function(n, max.depth){
   res <- c()
   depth <- n
   
@@ -14,6 +16,7 @@ get.depth <- function(n){
     depth <- new.depth
   }
   
+  if (!max.depth) res <- res[-length(res)]
   res <- sort(c(res, n + 1 - res))
   res
 }
@@ -25,11 +28,13 @@ get.depth <- function(n){
 #' Depends on get.depth()
 #'
 #' @param smpl sample vector
-tukey.quantiles <- function(smpl){
+#' @param max.depth Use extremes?
+#' @export
+tukey.quantiles <- function(smpl, max.depth){
   smpl <- sort(smpl)
   
   n <- length(smpl)  
-  depth <- get.depth(n)
+  depth <- get.depth(n, max.depth)
   floor.depth <- floor(depth)
   
   # grab letter values
@@ -47,16 +52,18 @@ tukey.quantiles <- function(smpl){
 #' Depends on get.depth()
 #'
 #' @param smpl sample vector
-quantile.table <- function(smpl){
+#' @param max.depth Use extremes?
+#' @export
+quantile.table <- function(smpl, max.depth){
   n <- length(smpl)
-  depth <- get.depth(n)
+  depth <- get.depth(n, max.depth)
   N <- length(depth)
   
   lower.depth <- depth[1:(N / 2)]
   lower.depth <- rev(lower.depth)
   upper.depth <- depth[(N / 2 + 1):N]	
   
-  quants <- tukey.quantiles(smpl)
+  quants <- tukey.quantiles(smpl, max.depth)
   lower.quantiles <- quants[ 1:(N / 2) ]
   lower.quantiles <- rev(lower.quantiles)
   upper.quantiles <- quants[ ((N / 2) + 1):N ]
@@ -81,9 +88,9 @@ quantile.table <- function(smpl){
 #' Show g for each quantile and estimate g
 #'
 #' Internal function
-#' Depends on quantile.table()
 #'
 #' @param tabl result from calling quantile.table()
+#' @export
 g.table <- function(tabl){
   
   half.area <- tabl$lTail[-1]
@@ -111,9 +118,9 @@ g.table <- function(tabl){
 #' Estimate h: given A and g
 #'
 #' Internal function
-#' Depends on g.table()
 #'
 #' @param tabl result from calling g.table()
+#' @export
 h.table <- function(tabl){ 
   g <- tabl$g
 

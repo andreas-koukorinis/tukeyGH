@@ -1,0 +1,10 @@
+library(roxygen2)
+help(package="roxygen2")
+setwd("/Users/kokrah/Dropbox/tukeyGH")
+roxygenize()
+roxygenize(".")
+require(tukeyGH)
+help(package="tukeyGH")
+gFit
+gFit()
+qgh

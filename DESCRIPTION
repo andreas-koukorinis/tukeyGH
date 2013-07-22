@@ -11,8 +11,3 @@ Collate:
     'main.r'
     'numerical_fcts.r'
     'estimation_fcts.r'
-Depends:
-    stats,
-    utils,
-    grDevices,
-    graphics

@@ -8,6 +8,6 @@
   \item{tabl}{result from calling quantile.table()}
 }
 \description{
-  Internal function Depends on quantile.table()
+  Internal function
 }
 

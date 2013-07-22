@@ -5,6 +5,7 @@
 #' @param h parameter
 #' @param A parameter
 #' @param B parameter
+#' @export
 rgh <- function(n, g=0, h=0, A=0, B=1){
 	if(!B > 0) stop("B must be positive")
 	
@@ -21,6 +22,7 @@ rgh <- function(n, g=0, h=0, A=0, B=1){
 #' @param h parameter
 #' @param A parameter
 #' @param B parameter
+#' @export
 qgh <- function(p, g=0, h=0, A=0, B=1){
 	if(!B > 0) stop("B must be positive")
 	
@@ -36,6 +38,7 @@ qgh <- function(p, g=0, h=0, A=0, B=1){
 #' @param h parameter
 #' @param A parameter
 #' @param B parameter
+#' @export
 pgh <- function(x, g=0, A=0, B=1){
 	if(!B > 0) stop("B must be positive")
 	
@@ -52,6 +55,7 @@ pgh <- function(x, g=0, A=0, B=1){
 #' @param h parameter
 #' @param A parameter
 #' @param B parameter
+#' @export
 dgh <- function(x, g=0, h=0, A=0, B=1){
 	if(!B > 0) stop("B must be positive")
 	
@@ -64,9 +68,11 @@ dgh <- function(x, g=0, h=0, A=0, B=1){
 #'
 #' @param smpl sample vector
 #' @param verbose show intermediate tables
-qFit <- function(smpl, verbose=FALSE){
+#' @param max.depth Use extremes?
+#' @export
+qFit <- function(smpl, verbose=FALSE, max.depth=FALSE){
 	# compute quantiles for fitting
-	q.tabl <- quantile.table(smpl)	
+	q.tabl <- quantile.table(smpl, max.depth)	
 	if (verbose) print(q.tabl)
 
 	# fit A and g 
@@ -87,6 +93,7 @@ qFit <- function(smpl, verbose=FALSE){
 #' @param smpl sample vector
 #' @param fit.pars results from qFit()
 #' @param plot.fit Do you want to show fit plots?
+#' @export
 goodnessFit <- function(smpl, fit.pars, plot.fit=FALSE){
   p <- c( .01, .025, .05, .1, .25, .4)
   p <- sort(c(1 - p, p))

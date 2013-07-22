@@ -3,6 +3,7 @@
 #' @param x numeric vector
 #' @param g g parameter
 #' @param h h parameter
+#' @export
 trans.gh <- function(x, g, h){
 	
 	if(g==0){		
@@ -20,6 +21,7 @@ trans.gh <- function(x, g, h){
 #' @param x numeric vector
 #' @param g g parameter
 #' @param h h parameter
+#' @export
 deriv.gh <- function(x, g, h){
 	
 	if(g==0){
@@ -36,6 +38,7 @@ deriv.gh <- function(x, g, h){
 #'
 #' @param x numeric vector
 #' @param g g parameter
+#' @export
 inv.trans.g <- function(x, g){
 	
 	res <- log(x * g + 1) / g
@@ -46,6 +49,7 @@ inv.trans.g <- function(x, g){
 #'
 #' @param x numeric vector
 #' @param g g parameter
+#' @export
 std.dgh <- function(x, g){
 
     if(g==0){
@@ -64,6 +68,7 @@ std.dgh <- function(x, g){
 #'
 #' @param x numeric vector
 #' @param g g parameter
+#' @export
 std.pgh <- function(x, g){
 
     if(g==0){
@@ -90,6 +95,7 @@ std.pgh <- function(x, g){
 #' @param p probs in (0, 1)
 #' @param g parameter
 #' @param h parameter (h must be non-negative)
+#' @export
 std.qgh <- function(p, g, h){
 	if(h < 0) stop("h must be non-negative")
 	

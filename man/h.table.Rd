@@ -8,6 +8,6 @@
   \item{tabl}{result from calling g.table()}
 }
 \description{
-  Internal function Depends on g.table()
+  Internal function
 }
 
