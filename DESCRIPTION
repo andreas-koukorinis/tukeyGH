@@ -10,4 +10,9 @@ Collate:
     'closed_fcts.r'
     'main.r'
     'numerical_fcts.r'
-Depends: stats, utils, grDevices, graphics
+    'estimation_fcts.r'
+Depends:
+    stats,
+    utils,
+    grDevices,
+    graphics
